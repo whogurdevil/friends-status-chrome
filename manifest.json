@@ -1,15 +1,25 @@
 {
     "manifest_version": 2,
-    "name": "Your Extension Name",
     "version": "1.0",
-    "description": "Description of your extension",
-    "permissions": ["activeTab"],
+ 
+    "name": "Test", 
+    "description": "My first Chrome extension.",
     "browser_action": {
-      "default_icon": "icon.png",
-      "default_popup": "popup.html"
+        "default_icon": "cat.jpeg",
+        "default_popup": "extension.html"
     },
-    "icons": {
-      "48": "icon.png"
+    "permissions": [
+        "activeTab", 
+        "https://www.exportersindia.com/"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["brain.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["brain.js"],
+        "persistent": false
     }
-  }
-  
+}
